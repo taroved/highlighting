@@ -79,8 +79,7 @@ $('#search').on('keyup', function(e) {
       
       if (search.length > 0) {    
         while (text.indexOf(search) != -1) {
-          var index = text.indexOf(search),
-              start = index,
+          var start = text.indexOf(search),
               end = start + search.length;
 
           //add marker class for matched text
@@ -90,8 +89,9 @@ $('#search').on('keyup', function(e) {
           text = text.substring(end);
           shift += end;
         }
-        found_in_row = found_in_row || shift > 0;
       }
+
+      found_in_row = found_in_row || shift > 0;
     });
 
     var hide = hide_rows && !found_in_row
